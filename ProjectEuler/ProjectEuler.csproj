@@ -41,6 +41,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="P001.cs" />
+    <Compile Include="P002.cs" />
+    <Compile Include="P003.cs" />
+    <Compile Include="P004.cs" />
+    <Compile Include="P005.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
