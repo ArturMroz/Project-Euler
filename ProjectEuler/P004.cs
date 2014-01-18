@@ -7,11 +7,10 @@ namespace ProjectEuler
     // Find the largest palindrome made from the product of two 3-digit numbers.
     public static class P004
     {
+        // we can describe palindrome made from the product of two 3-digit numbers as:
+        // 100000 * a + 10000 * b + 1000 * c + 100 * c + 10 * b + a
         public static long Solve()
         {
-            // we can describe palindrome made from the product of two 3-digit numbers as:
-            // 100000 * a + 10000 * b + 1000 * c + 100 * c + 10 * b + a
-
             var maxPalindrome = 0;
 
             for (int i = 999; i >= 100; i--)
