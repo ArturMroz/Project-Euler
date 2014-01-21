@@ -11,7 +11,7 @@ namespace ProjectEuler
         // 100000 * a + 10000 * b + 1000 * c + 100 * c + 10 * b + a
         public static long Solve()
         {
-            var maxPalindrome = 0;
+            int maxPalindrome = 0;
 
             for (int i = 999; i >= 100; i--)
             {
@@ -20,21 +20,24 @@ namespace ProjectEuler
                     int orignalNumber = i * j, number = orignalNumber;
 
                     int a = number / 100000;
-                    number -= a * 100000;
+                    number %= 100000;
                     int b = number / 10000;
-                    number -= b * 10000;
+                    number %= 10000;
                     int c = number / 1000;
-                    number -= c * 1000;
+                    number %= 1000;
 
                     if ((number / 100) == c)
                     {
-                        number -= c * 100;
+                        number %= 100;
                         if ((number / 10) == b)
                         {
-                            number -= b * 10;
+                            number %= 10;
                             if (number == a)
                             {
-                                maxPalindrome = maxPalindrome > orignalNumber ? maxPalindrome : orignalNumber;
+                               if (maxPalindrome < orignalNumber)
+                               {
+                                   maxPalindrome = orignalNumber;
+                               }
                             }
                         }
                     }

@@ -1,20 +1,19 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace ProjectEuler
 {
-    // What is the 10 001st prime number?
-    public static class P007
+    // Find the sum of all the primes below two million.
+    public static class P010
     {
-        private static int limit = 200000;
-        private const int N = 10001;
-
-        public static int Solve()
+        public static long Solve()
         {
+            int limit = 2000000;
             return SieveOfAtkins(limit);
         }
 
-        // Sieve of Atkins algorithm, faster than Eratosthenes'
-        public static int SieveOfAtkins(int limit)
+        public static long SieveOfAtkins(int limit)
         {
             int sqrtLimit, x, y, z, i;
             var sieve = new bool[limit + 1];
@@ -70,80 +69,21 @@ namespace ProjectEuler
                 }
             }
 
-            return GetNthPrimeFromSieve(sieve, 10001);
+            return SumOfPrimes(sieve);
         }
 
-        public static int SieveOfEratosthenes()
+        public static long SumOfPrimes(bool[] sieve)
         {
-            bool[] sieve = new bool[limit];
-
-            // set all values to true
-            for (int i = 2; i < limit; i++)
+            long sum = 0;
+            for (int i = 2; i < sieve.Count(); i++)
             {
-                sieve[i] = true;
-            }
-
-            for (int j = 2; j < limit; j++)
-            {
-                if (sieve[j])
+                if (sieve[i])
                 {
-                    // if number is prime, mark all its multiples
-                    for (long p = 2; (p * j) < limit; p++)
-                    {
-                        sieve[p * j] = false;
-                    }
+                    sum += i;
                 }
             }
 
-            return GetNthPrimeFromSieve(sieve);
-        }
-
-   
-        public static int GetNthPrimeFromSieve(bool[] sieve, int n = N)
-        {
-            int count = 0, index = 1;
-            while (count < n)
-            {
-                if (sieve[++index])
-                {
-                    count++;
-                }
-            };
-
-            return index;
-        }
-
-        public static int BruteForce()
-        {
-            int count = 0, index = 1;
-            while (count < 10001)
-            {
-                if (IsPrime(++index))
-                {
-                    count++;
-                }
-            };
-
-            return index;
-        }
-
-        public static bool IsPrime(long n)
-        {
-            if (n < 2)
-            {
-                return false;
-            }
-
-            // 2 and 3 are primes...
-            for (long i = 2; i < n - 1; i++)
-            {
-                if (n % i == 0)
-                {
-                    return false;
-                }
-            }
-
-            return true;
+            return sum;
         }
     }
 }
