@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-
-namespace ProjectEuler
+﻿namespace ProjectEuler
 {
     // Which starting number, under one million, produces the longest Collatz sequence?
     public static class P014
