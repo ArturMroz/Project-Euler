@@ -71,7 +71,7 @@ namespace ProjectEuler
             {
                 string[] numbers = lines[i].Split(' ');
 
-                for (int j = 0; j < SIZE; j++)
+                for (int j = 0; j < numbers.Length; j++)
                 {
                     table[i, j] = Convert.ToInt16(numbers[j]);
                 }

@@ -7,6 +7,15 @@ namespace ProjectEuler
     // Library of the commonly used methods across the project.
     public static class Library
     {
+        private static List<int> primes;
+        const int LIMIT = 1000000;
+
+        public static void InitiateSieve(int limit)
+        {
+            var sieve = Library.SieveOfAtkins(limit);
+            primes = SieveToIntList(sieve);
+        }
+
         public static bool[] SieveOfAtkins(int limit)
         {
             int sqrtLimit, x, y, z, i;
@@ -89,6 +98,80 @@ namespace ProjectEuler
                 {
                     sum += i;
                 }
+            }
+
+            return sum;
+        }
+
+        public static List<int> GetPrimeFactors(long n)
+        {
+            if (primes == null)
+            {
+                Library.InitiateSieve(LIMIT);
+            }
+            
+            var primeFactors = new List<int>();
+            int i = 0;
+
+            while (n > 1)
+            {
+                int prime = primes[i];
+
+                if (n % prime == 0)
+                {
+                    primeFactors.Add(prime);
+                    n /= prime;
+                    i = 0;
+                }
+                else
+                {
+                    i++;
+                }
+            }
+
+            return primeFactors;
+        }
+
+        public static int GetDivisorsCount(List<int> primeFactors)
+        {
+            int divisorsCount = 1;
+            var factorsGroupedByValue = primeFactors.GroupBy(num => num);
+
+            foreach (var item in factorsGroupedByValue)
+            {
+                divisorsCount *= item.Count() + 1;
+            }
+
+            return divisorsCount;
+        }
+
+        public static long GetProperDivisorsSum(long n)
+        {
+            var primeFactors = GetPrimeFactors(n);
+            return GetDivisorsSum(primeFactors) - n;
+        }
+
+        public static long GetDivisorsSum(List<int> primeFactors)
+        {
+            long sum = 1, subSum;
+            var factorsGroupedByValue = primeFactors.GroupBy(num => num);
+
+            foreach (var item in factorsGroupedByValue)
+            {
+                subSum = 0;
+                if (item.Count() > 1)
+                {
+                    for (int i = item.Count(); i >= 0; i--)
+                    {
+                        subSum += (long)Math.Pow((double)item.Key, (double)i);
+                    }
+                }
+                else
+                {
+                    subSum += item.Key + 1;
+                }
+
+                sum *= subSum;
             }
 
             return sum;

@@ -11,7 +11,7 @@ namespace ProjectEuler
         {
             var clock = Stopwatch.StartNew();
 
-            var result = P020.Solve();
+            var result = P017.Solve();
 
             clock.Stop();
             Clipboard.SetText(result.ToString());
