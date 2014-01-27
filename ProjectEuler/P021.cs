@@ -4,7 +4,6 @@
     public static class P021
     {
         // from now on I'm going to put all commonly used methods into Library class
-        // and just call methods from there
         public static long Solve()
         {
             int limit = 10000;
@@ -13,7 +12,7 @@
 
             Library.InitiateSieve(100000);
 
-            for (int i = 1; i < divisorsSum.Length; i++)
+            for (int i = 1; i < limit; i++)
             {
                 var sum = Library.GetProperDivisorsSum(i);
                 divisorsSum[i] = sum;

@@ -8,7 +8,7 @@ namespace ProjectEuler
     public static class Library
     {
         private static List<int> primes;
-        const int LIMIT = 1000000;
+        const int LIMIT = 10000000;
 
         public static void InitiateSieve(int limit)
         {
@@ -109,7 +109,7 @@ namespace ProjectEuler
             {
                 Library.InitiateSieve(LIMIT);
             }
-            
+
             var primeFactors = new List<int>();
             int i = 0;
 
@@ -161,17 +161,17 @@ namespace ProjectEuler
                 subSum = 0;
                 if (item.Count() > 1)
                 {
-                    for (int i = item.Count(); i >= 0; i--)
+                    for (int i = item.Count(); i > 0; i--)
                     {
-                        subSum += (long)Math.Pow((double)item.Key, (double)i);
+                        subSum += (long)Math.Pow(item.Key, i);
                     }
                 }
                 else
                 {
-                    subSum += item.Key + 1;
+                    subSum = item.Key;
                 }
 
-                sum *= subSum;
+                sum *= subSum + 1;
             }
 
             return sum;

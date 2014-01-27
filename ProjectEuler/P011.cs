@@ -33,7 +33,7 @@ namespace ProjectEuler
                         dDownProduct *= table[i + k, j + 3 - k];
                     }
 
-                    maxProduct = new int[] { maxProduct, hProduct, vProduct, dUpProduct, dDownProduct }.Max();
+                    maxProduct = new[] { maxProduct, hProduct, vProduct, dUpProduct, dDownProduct }.Max();
                 }
             }
 

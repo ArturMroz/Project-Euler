@@ -2,10 +2,9 @@
 
 namespace ProjectEuler
 {
-
+    // If all the numbers from 1 to 1000 inclusive were written out in words, how many letters would be used?
     public static class P017
     {
-        // If all the numbers from 1 to 1000 inclusive were written out in words, how many letters would be used?
         public static int Solve()
         {
             var digits =
@@ -67,7 +66,7 @@ namespace ProjectEuler
 
             sum.Append("one thousand");
             sum.Replace(" ", string.Empty);
-            
+
             return sum.Length;
         }
     }
