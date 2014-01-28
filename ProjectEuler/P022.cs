@@ -22,8 +22,7 @@ namespace ProjectEuler
                     sum += (int)letter - 64;
                 }
 
-                score += sum * i;
-                i++;
+                score += sum * i++;
             }
 
             return score;
