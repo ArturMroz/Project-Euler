@@ -12,7 +12,7 @@ namespace ProjectEuler
 
             // in 20x20 there are only paths of lenght 40, which consist of 20 down, 20 right
             // so all the path are actualy a combination of 20 (up, and not up) from 40
-            // using multiplicative formula for binomial Coefficient (20 from 40): 
+            // using multiplicative formula for binomial coefficient (20 from 40): 
             while (++i <= 20)
             {
                 result *= (n + i);
@@ -23,8 +23,7 @@ namespace ProjectEuler
 
             // that's another possible solution but it's way more expensive;
             // equotation can be described as n! / k! * (n - k)!
-            // and as n = 2k, it can be further simplified to
-            // (2n)! * (n!)^2
+            // and as n = 2k, it can be further simplified to (2n)! * (n!)^2
             //return Factorial(2 * n) / (Factorial(n) * Factorial(n));
         }
 

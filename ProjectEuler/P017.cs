@@ -35,12 +35,12 @@ namespace ProjectEuler
                 {
                     int hundreds = n / 100;
                     number.Append(digits[hundreds]);
-                    number.Append(" hundred");
+                    number.Append("hundred");
 
                     n %= 100;
                     if (n != 0)
                     {
-                        number.Append(" and ");
+                        number.Append("and");
                     }
                 }
 
@@ -48,7 +48,6 @@ namespace ProjectEuler
                 {
                     int decimalDigit = n / 10;
                     number.Append(tens[decimalDigit]);
-                    number.Append(" ");
                     decimalDigit = n % 10;
                     number.Append(digits[decimalDigit]);
                 }
@@ -64,9 +63,7 @@ namespace ProjectEuler
                 sum.Append(number);
             }
 
-            sum.Append("one thousand");
-            sum.Replace(" ", string.Empty);
-
+            sum.Append("onethousand");
             return sum.Length;
         }
     }
