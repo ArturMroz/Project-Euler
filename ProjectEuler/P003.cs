@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-
-namespace ProjectEuler
+﻿namespace ProjectEuler
 {
     // What is the largest prime factor of the number 600851475143 ?
     public static class P003
@@ -10,8 +6,7 @@ namespace ProjectEuler
         public static long Solve()
         {
             long number = 600851475143;
-            var factor = 2;
-            var primeFactor = 2;
+            int factor = 2, primeFactor = 2;
 
             while (number > 1)
             {

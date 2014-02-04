@@ -68,6 +68,7 @@
     <Compile Include="P022.cs" />
     <Compile Include="P023.cs" />
     <Compile Include="P025.cs" />
+    <Compile Include="P028.cs" />
     <Compile Include="P029.cs" />
     <Compile Include="P067.cs" />
     <Compile Include="Program.cs" />

@@ -6,8 +6,7 @@
     {
         public static int Solve()
         {
-            int sum = 0;
-            int previous = 1, current = 1, temp;
+            int sum = 0, previous = 1, current = 1, temp;
 
             while (current < 4000000)
             {
