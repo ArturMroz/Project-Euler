@@ -10,8 +10,7 @@ namespace ProjectEuler
         static void Main(string[] args)
         {
             var clock = Stopwatch.StartNew();
-
-            var result = P018.Solve();
+            var result = P012.Solve();
 
             clock.Stop();
             Clipboard.SetText(result.ToString());

@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="027.cs" />
     <Compile Include="Library.cs" />
     <Compile Include="P017.cs" />
     <Compile Include="P018.cs" />
@@ -68,8 +69,12 @@
     <Compile Include="P022.cs" />
     <Compile Include="P023.cs" />
     <Compile Include="P025.cs" />
+    <Compile Include="P027.cs" />
     <Compile Include="P028.cs" />
     <Compile Include="P029.cs" />
+    <Compile Include="P030.cs" />
+    <Compile Include="P031.cs" />
+    <Compile Include="P034.cs" />
     <Compile Include="P067.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -13,12 +13,13 @@ namespace ProjectEuler
             // it would be impossible for a number to be smaller 
             // than 100 and bigger than 500, considering that
             // a^2 + b^2 = c^2 and a < b < c and a + b + c = 1000 
-            int a, b, c = 500;
-            for (a = 100; a < 400; a++)
+            int a = 100, b, c = 500;
+            
+            while (++a < 400)
             {
                 b = a;
 
-                while (c > ++b)
+                while (++b < c)
                 {
                     c = 1000 - a - b;
 

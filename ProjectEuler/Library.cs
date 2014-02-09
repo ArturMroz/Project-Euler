@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Numerics;
 
 namespace ProjectEuler
 {
@@ -9,6 +10,17 @@ namespace ProjectEuler
     {
         private static List<int> primes;
         const int LIMIT = 10000000;
+
+        public static BigInteger Factorial(long n)
+        {
+            BigInteger result = n;
+            while (--n > 1)
+            {
+                result *= n;
+            }
+
+            return result;
+        }
 
         public static void InitiateSieve(int limit)
         {
@@ -78,6 +90,20 @@ namespace ProjectEuler
         public static List<int> SieveToIntList(bool[] sieve)
         {
             var list = new List<int> { };
+            for (int i = 2; i < sieve.Length; i++)
+            {
+                if (sieve[i])
+                {
+                    list.Add(i);
+                }
+            }
+
+            return list;
+        }
+
+        public static HashSet<int> SieveToHashSet(bool[] sieve)
+        {
+            var list = new HashSet<int> { };
             for (int i = 2; i < sieve.Length; i++)
             {
                 if (sieve[i])

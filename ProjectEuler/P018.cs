@@ -14,7 +14,7 @@ namespace ProjectEuler
             grid = GenerateTable();
 
             // start from the second bottom row of pyramid
-            // to current node add its bigger children
+            // add bigger children to current node
             // proceed all the way up to very first node
             for (int i = grid.GetLength(0) - 2; i >= 0; i--)
             {
@@ -24,7 +24,7 @@ namespace ProjectEuler
                 }
             }
 
-            return grid[0,0];
+            return grid[0, 0];
         }
 
         // use recursive function to check all possible values

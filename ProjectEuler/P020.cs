@@ -8,7 +8,7 @@ namespace ProjectEuler
         public static int Solve()
         {
             int n = 100;
-            var factorial = (BigInteger)n;
+            BigInteger factorial = n;
 
             while (--n > 1)
             {
