@@ -11,6 +11,13 @@ namespace ProjectEuler
         private static List<int> primes;
         const int LIMIT = 10000000;
 
+        public static void Swap<T>(ref T a, ref T b)
+        {
+            T c = a;
+            a = b;
+            b = c;
+        }
+
         public static BigInteger Factorial(long n)
         {
             BigInteger result = n;
