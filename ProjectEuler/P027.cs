@@ -12,8 +12,7 @@ namespace ProjectEuler
     {
         public static int Solve()
         {
-            var sieve = Library.SieveOfAtkins(100000);
-            var primes = Library.SieveToHashSet(sieve);
+            var primes = Library.GetPrimes<HashSet<int>>(100000);
 
             var maxCount = new Tuple<int, int>(0, 0);
             int start = -1000, end = 1000;

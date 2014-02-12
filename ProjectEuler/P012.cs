@@ -15,8 +15,7 @@ namespace ProjectEuler
 
             // we can start from 7th as we know from problem description that it has 6 divisors 
             int i = 7;
-            var sieve = Library.SieveOfAtkins(100000);
-            primes = Library.SieveToIntList(sieve);
+            primes = Library.GetPrimes<List<int>>(100000);
 
             while (divisorsCount < 500)
             {

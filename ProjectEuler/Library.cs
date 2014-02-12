@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Numerics;
@@ -10,6 +11,50 @@ namespace ProjectEuler
     {
         private static List<int> primes;
         const int LIMIT = 10000000;
+
+        public static string Solve()
+        {
+            int[] items = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+            int count = 1, limit = 1000000;
+
+            // Dijkstra algorithm for lexicographic order permutation
+            while (count < limit)
+            {
+                int n = items.Length, i = n - 1;
+
+                while (items[i - 1] >= items[i])
+                {
+                    i--;
+                }
+
+                int j = n;
+                while (items[j - 1] <= items[i - 1])
+                {
+                    j--;
+                }
+
+                Swap(items, (i++) - 1, j - 1);
+
+                j = n;
+
+                while (i < j)
+                {
+                    Swap(items, (i++) - 1, (j--) - 1);
+                }
+
+                count++;
+            }
+
+            // int[] to string
+            return items.Aggregate(string.Empty, (s, i) => s + i.ToString());
+        }
+
+        private static void Swap(int[] arr, int i, int j)
+        {
+            int temp = arr[i];
+            arr[i] = arr[j];
+            arr[j] = temp;
+        }
 
         public static void Swap<T>(ref T a, ref T b)
         {
@@ -31,8 +76,8 @@ namespace ProjectEuler
 
         public static void InitiateSieve(int limit)
         {
-            var sieve = Library.SieveOfAtkins(limit);
-            primes = SieveToIntList(sieve);
+            //var sieve = Library.SieveOfAtkins();
+            primes = GetPrimesList(limit);
         }
 
         public static bool[] SieveOfAtkins(int limit)
@@ -94,9 +139,11 @@ namespace ProjectEuler
             return sieve;
         }
 
-        public static List<int> SieveToIntList(bool[] sieve)
+        public static List<int> GetPrimesList(int limit)
         {
             var list = new List<int> { };
+            var sieve = SieveOfAtkins(limit);
+
             for (int i = 2; i < sieve.Length; i++)
             {
                 if (sieve[i])
@@ -108,18 +155,36 @@ namespace ProjectEuler
             return list;
         }
 
-        public static HashSet<int> SieveToHashSet(bool[] sieve)
+        public static HashSet<int> GetPrimesSet(int limit)
         {
-            var list = new HashSet<int> { };
+            var hashSet = new HashSet<int> { };
+            var sieve = SieveOfAtkins(limit);
+
             for (int i = 2; i < sieve.Length; i++)
             {
                 if (sieve[i])
                 {
-                    list.Add(i);
+                    hashSet.Add(i);
                 }
             }
 
-            return list;
+            return hashSet;
+        }
+
+        public static T GetPrimes<T>(int limit) where T : ICollection<int>, new()
+        {
+            var hashSet = new T();
+            var sieve = SieveOfAtkins(limit);
+
+            for (int i = 2; i < sieve.Length; i++)
+            {
+                if (sieve[i])
+                {
+                    hashSet.Add(i);
+                }
+            }
+
+            return hashSet;
         }
 
         public static long SumOfPrimes(bool[] sieve)

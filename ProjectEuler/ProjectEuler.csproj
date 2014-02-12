@@ -75,6 +75,7 @@
     <Compile Include="P030.cs" />
     <Compile Include="P031.cs" />
     <Compile Include="P034.cs" />
+    <Compile Include="P035.cs" />
     <Compile Include="P067.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
