@@ -173,18 +173,18 @@ namespace ProjectEuler
 
         public static T GetPrimes<T>(int limit) where T : ICollection<int>, new()
         {
-            var hashSet = new T();
+            var collection = new T();
             var sieve = SieveOfAtkins(limit);
 
             for (int i = 2; i < sieve.Length; i++)
             {
                 if (sieve[i])
                 {
-                    hashSet.Add(i);
+                    collection.Add(i);
                 }
             }
 
-            return hashSet;
+            return collection;
         }
 
         public static long SumOfPrimes(bool[] sieve)
@@ -249,6 +249,41 @@ namespace ProjectEuler
             return GetDivisorsSum(primeFactors) - n;
         }
 
+        public static List<long> GetAllDivisors(int number)
+        {
+            var primeFactors = GetPrimeFactors(number);
+
+            var factorsGroupedByValue = primeFactors.GroupBy(n => n);
+            var p = new List<int>();
+            var e = new List<int>();
+            int divisorsCount = 1;
+
+            foreach (var item in factorsGroupedByValue)
+            {
+                p.Add(item.Key);
+                e.Add(item.Count());
+                divisorsCount *= item.Count() + 1;
+            }
+
+            int count = 1;
+            var divisors = new long[divisorsCount];
+            divisors[0] = 1;
+
+            for (int i = 0; i < p.Count; i++)
+            {
+                int n = count;
+                for (int j = 0; j < e[i]; j++)
+                {
+                    for (int a = 0; a < n; a++)
+                    {
+                        divisors[count++] = p[i] * divisors[a + j * n];
+                    }
+                }
+            }
+
+            return divisors.ToList();
+        }
+
         public static long GetDivisorsSum(List<int> primeFactors)
         {
             long sum = 1, subSum;
@@ -273,6 +308,30 @@ namespace ProjectEuler
             }
 
             return sum;
+        }
+
+        public static List<int> NumberToList(int n)
+        {
+            var list = new List<int>();
+            while (n != 0)
+            {
+                list.Add(n % 10);
+                n /= 10;
+            }
+
+            return list;
+        }
+
+        public static int ListToNumber(List<int> list)
+        {
+            int n = 0, i = 1;
+            foreach (var item in list)
+            {
+                n += item * i;
+                i *= 10;
+            }
+
+            return n;
         }
     }
 }
