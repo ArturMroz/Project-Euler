@@ -13,13 +13,12 @@ namespace ProjectEuler
 
             for (int i = 1234; i < 9876; i++)
             {
-                //var primeFactors = Library.GetPrimeFactors(i);
                 var divisors = Library.GetAllDivisors(i);
 
                 for (int j = 1; j < (divisors.Count) / 2; j++)
                 {
                     digits.Clear();
-                    
+
                     digits.UnionWith(Library.NumberToList((int)divisors[j]));
                     digits.UnionWith(Library.NumberToList((int)divisors[divisors.Count - 1 - j]));
                     digits.UnionWith(Library.NumberToList(i));

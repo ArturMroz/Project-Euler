@@ -10,7 +10,10 @@ namespace ProjectEuler
         static void Main(string[] args)
         {
             var clock = Stopwatch.StartNew();
-            var result = P032.Solve();
+            //var result = P040.Solve();
+            var result = 1;
+
+            GameOfLife.Initialize();
 
             clock.Stop();
             Clipboard.SetText(result.ToString());

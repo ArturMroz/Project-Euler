@@ -252,36 +252,27 @@ namespace ProjectEuler
         public static List<long> GetAllDivisors(int number)
         {
             var primeFactors = GetPrimeFactors(number);
-
-            var factorsGroupedByValue = primeFactors.GroupBy(n => n);
-            var p = new List<int>();
-            var e = new List<int>();
-            int divisorsCount = 1;
-
-            foreach (var item in factorsGroupedByValue)
-            {
-                p.Add(item.Key);
-                e.Add(item.Count());
-                divisorsCount *= item.Count() + 1;
-            }
-
+            var factorsGroupedByValue = primeFactors.GroupBy(n => n).ToList();
             int count = 1;
-            var divisors = new long[divisorsCount];
-            divisors[0] = 1;
+            var divisors = new List<long> { 1 };
 
-            for (int i = 0; i < p.Count; i++)
+            for (int i = 0; i < factorsGroupedByValue.Count(); i++)
             {
+                var current = factorsGroupedByValue[i];
+                int p = current.Key, e = current.Count();
+
                 int n = count;
-                for (int j = 0; j < e[i]; j++)
+                for (int j = 0; j < e; j++)
                 {
                     for (int a = 0; a < n; a++)
                     {
-                        divisors[count++] = p[i] * divisors[a + j * n];
+                        divisors.Add(p * divisors[a + j * n]);
+                        count++;
                     }
                 }
             }
-
-            return divisors.ToList();
+            
+            return divisors;
         }
 
         public static long GetDivisorsSum(List<int> primeFactors)
@@ -322,9 +313,9 @@ namespace ProjectEuler
             return list;
         }
 
-        public static int ListToNumber(List<int> list)
+        public static long ListToNumber(List<int> list)
         {
-            int n = 0, i = 1;
+            long n = 0, i = 1;
             foreach (var item in list)
             {
                 n += item * i;
