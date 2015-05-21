@@ -10,9 +10,9 @@ namespace ProjectEuler
     {
         public static int Solve()
         {
-            // it would be impossible for a number to be smaller 
+            // it would be impossible for a number to be smaller
             // than 100 and bigger than 500, considering that
-            // a^2 + b^2 = c^2 and a < b < c and a + b + c = 1000 
+            // a^2 + b^2 = c^2 and a < b < c and a + b + c = 1000
             int a = 100, b, c = 500;
             
             while (++a < 400)

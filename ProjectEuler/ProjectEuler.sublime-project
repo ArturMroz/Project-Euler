@@ -2,26 +2,25 @@
 	"folders":
 	[
 		{
-			"path": "/home/artur/Documents/Project-Euler"
+			"follow_symlinks": true,
+			// "path": "/home/artur/Documents/Project-Euler"
+			"path": ".."
 		}
 	],
+	"solution_file": "../ProjectEuler.sln",
 	"build_systems":
 	[
 		{
 			"name": "Euler",
-			"shell_cmd": "xbuild",
+			"shell_cmd": "xbuild >/dev/null && mono bin/Debug/$project_base_name.exe",
 			"working_dir": "${project_path:${folder}}",
 
 			"variants": 
 			[
 				{
-					"name": "Run",
-					"shell_cmd": "xbuild >/dev/null && mono bin/Debug/$project_base_name.exe"
+					"name": "Build",
+					"shell_cmd": "xbuild",
 				},
-				{
-					"name": "Run show build",
-					"shell_cmd": "xbuild && mono bin/Debug/$project_base_name.exe"
-				}	
 			]
 		}
 	]

@@ -1,5 +1,3 @@
-﻿using System;
-
 namespace ProjectEuler
 {
     // How many different ways can £2 be made using any number of coins
@@ -8,14 +6,20 @@ namespace ProjectEuler
         public static int Solve()
         {
             int[] coins = { 1, 2, 5, 10, 20, 50, 100, 200 };
-//            int[coins.Length] state;
+            var n = 200;
+            var state = new int[n + 1];
+            state[0] = 1;
 
-            foreach (var item in coins) {
-                Console.WriteLine(item);
+            for (int i = 0; i < coins.Length; i++)
+            {
+                for (int j = coins[i]; j <= n; j++)
+                {
+                    state[j] += state[j - coins[i]];
+                }
             }
 
-            return 0;
+            return state[n];
         }
     }
 }
-
+        
