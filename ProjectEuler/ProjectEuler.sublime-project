@@ -1,28 +1,32 @@
 {
+	"build_systems":
+	[
+		{
+			"name": "Euler mono",
+			"shell_cmd": "xbuild >/dev/null && mono bin/Debug/$project_base_name.exe",
+			"working_dir": "${project_path:${folder}}",
+			"selector": "source.cs",
+			"variants":
+			[
+				{
+					"name": "Build",
+					"shell_cmd": "xbuild"
+				}
+			],
+		},
+		{
+			"file_regex": "^[ ]*File \"(...*?)\", line ([0-9]*)",
+			"name": "Anaconda Python Builder",
+			"selector": "source.python",
+			"shell_cmd": "python -u \"$file\""
+		}
+	],
 	"folders":
 	[
 		{
 			"follow_symlinks": true,
-			// "path": "/home/artur/Documents/Project-Euler"
 			"path": ".."
 		}
 	],
-	"solution_file": "../ProjectEuler.sln",
-	"build_systems":
-	[
-		{
-			"name": "Euler",
-			"shell_cmd": "xbuild >/dev/null && mono bin/Debug/$project_base_name.exe",
-			"working_dir": "${project_path:${folder}}",
-
-			"variants": 
-			[
-				{
-					"name": "Build",
-					"shell_cmd": "xbuild",
-				},
-			]
-		}
-	]
-
+	"solution_file": "../ProjectEuler.sln"
 }
