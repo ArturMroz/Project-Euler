@@ -12,7 +12,6 @@ namespace ProjectEuler
             var result = new P033().Solve();
             clock.Stop();
             Console.WriteLine("Solution: {0}, calculated in: {1}", result, clock.Elapsed);
-            Console.ReadKey();
         }
     }
 }

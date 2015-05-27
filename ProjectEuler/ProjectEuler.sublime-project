@@ -3,9 +3,8 @@
 	[
 		{
 			"name": "Euler mono",
-			"shell_cmd": "xbuild >/dev/null && mono bin/Debug/$project_base_name.exe",
-			"working_dir": "${project_path:${folder}}",
 			"selector": "source.cs",
+			"shell_cmd": "xbuild >/dev/null && mono bin/Debug/$project_base_name.exe",
 			"variants":
 			[
 				{
@@ -13,6 +12,7 @@
 					"shell_cmd": "xbuild"
 				}
 			],
+			"working_dir": "${project_path:${folder}}"
 		},
 		{
 			"file_regex": "^[ ]*File \"(...*?)\", line ([0-9]*)",
@@ -24,7 +24,6 @@
 	"folders":
 	[
 		{
-			"follow_symlinks": true,
 			"path": ".."
 		}
 	],
