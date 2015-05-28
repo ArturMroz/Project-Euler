@@ -27,5 +27,9 @@
 			"path": ".."
 		}
 	],
-	"solution_file": "../ProjectEuler.sln"
+	"solution_file": "../ProjectEuler.sln",
+	"settings":
+	{
+		"rulers": [80]
+	}
 }
