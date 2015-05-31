@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -49,43 +50,43 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="P001-P050\P001.cs" />
-    <Compile Include="P001-P050\P002.cs" />
-    <Compile Include="P001-P050\P003.cs" />
-    <Compile Include="P001-P050\P004.cs" />
-    <Compile Include="P001-P050\P005.cs" />
-    <Compile Include="P001-P050\P006.cs" />
-    <Compile Include="P001-P050\P007.cs" />
-    <Compile Include="P001-P050\P008.cs" />
-    <Compile Include="P001-P050\P009.cs" />
-    <Compile Include="P001-P050\P010.cs" />
-    <Compile Include="P001-P050\P011.cs" />
-    <Compile Include="P001-P050\P012.cs" />
-    <Compile Include="P001-P050\P013.cs" />
-    <Compile Include="P001-P050\P014.cs" />
-    <Compile Include="P001-P050\P015.cs" />
-    <Compile Include="P001-P050\P016.cs" />
-    <Compile Include="P001-P050\P017.cs" />
-    <Compile Include="P001-P050\P018.cs" />
-    <Compile Include="P001-P050\P019.cs" />
-    <Compile Include="P001-P050\P020.cs" />
-    <Compile Include="P001-P050\P021.cs" />
-    <Compile Include="P001-P050\P022.cs" />
-    <Compile Include="P001-P050\P023.cs" />
-    <Compile Include="P001-P050\P024.cs" />
-    <Compile Include="P001-P050\P025.cs" />
-    <Compile Include="P001-P050\P027.cs" />
-    <Compile Include="P001-P050\P028.cs" />
-    <Compile Include="P001-P050\P029.cs" />
-    <Compile Include="P001-P050\P030.cs" />
-    <Compile Include="P001-P050\P031.cs" />
-    <Compile Include="P001-P050\P032.cs" />
-    <Compile Include="P001-P050\P033.cs" />
-    <Compile Include="P001-P050\P034.cs" />
-    <Compile Include="P001-P050\P035.cs" />
-    <Compile Include="P051-P100\P067.cs" />
-    <Compile Include="P048.cs" />
-    <Compile Include="P001-P050\P048.cs" />
+    <Compile Include="Problems 1 - 50\P001.cs" />
+    <Compile Include="Problems 1 - 50\P002.cs" />
+    <Compile Include="Problems 1 - 50\P003.cs" />
+    <Compile Include="Problems 1 - 50\P004.cs" />
+    <Compile Include="Problems 1 - 50\P005.cs" />
+    <Compile Include="Problems 1 - 50\P006.cs" />
+    <Compile Include="Problems 1 - 50\P007.cs" />
+    <Compile Include="Problems 1 - 50\P008.cs" />
+    <Compile Include="Problems 1 - 50\P009.cs" />
+    <Compile Include="Problems 1 - 50\P010.cs" />
+    <Compile Include="Problems 1 - 50\P011.cs" />
+    <Compile Include="Problems 1 - 50\P012.cs" />
+    <Compile Include="Problems 1 - 50\P013.cs" />
+    <Compile Include="Problems 1 - 50\P014.cs" />
+    <Compile Include="Problems 1 - 50\P015.cs" />
+    <Compile Include="Problems 1 - 50\P016.cs" />
+    <Compile Include="Problems 1 - 50\P017.cs" />
+    <Compile Include="Problems 1 - 50\P018.cs" />
+    <Compile Include="Problems 1 - 50\P019.cs" />
+    <Compile Include="Problems 1 - 50\P020.cs" />
+    <Compile Include="Problems 1 - 50\P021.cs" />
+    <Compile Include="Problems 1 - 50\P022.cs" />
+    <Compile Include="Problems 1 - 50\P023.cs" />
+    <Compile Include="Problems 1 - 50\P024.cs" />
+    <Compile Include="Problems 1 - 50\P025.cs" />
+    <Compile Include="Problems 1 - 50\P027.cs" />
+    <Compile Include="Problems 1 - 50\P028.cs" />
+    <Compile Include="Problems 1 - 50\P029.cs" />
+    <Compile Include="Problems 1 - 50\P030.cs" />
+    <Compile Include="Problems 1 - 50\P031.cs" />
+    <Compile Include="Problems 1 - 50\P032.cs" />
+    <Compile Include="Problems 1 - 50\P033.cs" />
+    <Compile Include="Problems 1 - 50\P034.cs" />
+    <Compile Include="Problems 1 - 50\P035.cs" />
+    <Compile Include="Problems 1 - 50\P048.cs" />
+    <Compile Include="Problems 1 - 50\P040.cs" />
+    <Compile Include="Problems 51 - 100\P067.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -111,7 +112,7 @@
   </Target>
   -->
   <ItemGroup>
-    <Folder Include="P001-P050\" />
-    <Folder Include="P051-P100\" />
+    <Folder Include="Problems 1 - 50\" />
+    <Folder Include="Problems 51 - 100\" />
   </ItemGroup>
 </Project>

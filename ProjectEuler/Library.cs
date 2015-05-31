@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Numerics;
@@ -46,10 +45,10 @@ namespace ProjectEuler
             }
 
             // int[] to string
-            return items.Aggregate(string.Empty, (s, i) => s + i.ToString());
+            return items.Aggregate(string.Empty, (s, i) => s + i);
         }
 
-        private static void Swap(int[] arr, int i, int j)
+        private static void Swap(IList<int> arr, int i, int j)
         {
             int temp = arr[i];
             arr[i] = arr[j];
@@ -141,7 +140,7 @@ namespace ProjectEuler
 
         public static List<int> GetPrimesList(int limit)
         {
-            var list = new List<int> { };
+            var list = new List<int>();
             var sieve = SieveOfAtkins(limit);
 
             for (int i = 2; i < sieve.Length; i++)
@@ -157,7 +156,7 @@ namespace ProjectEuler
 
         public static HashSet<int> GetPrimesSet(int limit)
         {
-            var hashSet = new HashSet<int> { };
+            var hashSet = new HashSet<int>();
             var sieve = SieveOfAtkins(limit);
 
             for (int i = 2; i < sieve.Length; i++)
@@ -190,7 +189,7 @@ namespace ProjectEuler
         public static long SumOfPrimes(bool[] sieve)
         {
             long sum = 0;
-            for (int i = 2; i < sieve.Count(); i++)
+            for (int i = 2; i < sieve.Length; i++)
             {
                 if (sieve[i])
                 {
@@ -230,7 +229,7 @@ namespace ProjectEuler
             return primeFactors;
         }
 
-        public static int GetDivisorsCount(List<int> primeFactors)
+        public static int GetDivisorsCount(IEnumerable<int> primeFactors)
         {
             int divisorsCount = 1;
             var factorsGroupedByValue = primeFactors.GroupBy(num => num);
@@ -256,11 +255,9 @@ namespace ProjectEuler
             int count = 1;
             var divisors = new List<long> { 1 };
 
-            for (int i = 0; i < factorsGroupedByValue.Count(); i++)
+            foreach (var current in factorsGroupedByValue)
             {
-                var current = factorsGroupedByValue[i];
                 int p = current.Key, e = current.Count();
-
                 int n = count;
                 for (int j = 0; j < e; j++)
                 {
@@ -313,7 +310,7 @@ namespace ProjectEuler
             return list;
         }
 
-        public static long ListToNumber(List<int> list)
+        public static long ListToNumber(IEnumerable<int> list)
         {
             long n = 0, i = 1;
             foreach (var item in list)
