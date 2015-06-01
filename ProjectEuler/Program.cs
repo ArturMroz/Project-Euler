@@ -9,7 +9,7 @@ namespace ProjectEuler
         static void Main()
         {
             var clock = Stopwatch.StartNew();
-            var result = P004.Solve();
+            var result = P023.Solve();
             clock.Stop();
             Console.WriteLine("Solution: {0}, calculated in: {1}", result, clock.Elapsed);
         }

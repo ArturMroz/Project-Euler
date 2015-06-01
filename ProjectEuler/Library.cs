@@ -202,14 +202,13 @@ namespace ProjectEuler
 
         public static List<int> GetPrimeFactors(long n)
         {
+            var primeFactors = new List<int>();
             if (primes == null)
             {
                 Library.InitiateSieve(LIMIT);
             }
 
-            var primeFactors = new List<int>();
             int i = 0;
-
             while (n > 1)
             {
                 int prime = primes[i];

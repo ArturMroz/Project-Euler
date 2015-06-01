@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace ProjectEuler
 {
-    // Find the sum of all the positive integers which cannot be written as the sum of two abundant numbers.
+    // Find the sum of all the positive integers which cannot be written as 
+    // the sum of two abundant numbers.
     public static class P023
     {
         public static int Solve()
@@ -33,10 +33,8 @@ namespace ProjectEuler
                     {
                         break;
                     }
-                    else
-                    {
-                        abundantSums.Add(abdundantSum);
-                    }
+
+                    abundantSums.Add(abdundantSum);
                 }
             }
 

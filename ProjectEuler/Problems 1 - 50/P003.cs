@@ -1,4 +1,5 @@
-﻿namespace ProjectEuler
+﻿            }
+namespace ProjectEuler
 {
     // What is the largest prime factor of the number 600851475143 ?
     public static class P003
