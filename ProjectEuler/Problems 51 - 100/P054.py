@@ -42,7 +42,7 @@ def rank(h):
         return 3, val(c[0][0])
 
     # two pairs
-    if c[0][1] == 2 and c[1][1] == 2:
+    if c[0][1] == c[1][1] == 2:
         return 2, val(c[0][0]), val(c[1][0]), val(c[2][0])
 
     # one pair
@@ -51,9 +51,5 @@ def rank(h):
 
     return 0, sh
 
-ans = 0
-for line in open("../Resources/p054_poker.txt"):
-    hand = line.split()
-    ans += rank(hand[:5]) > rank(hand[5:])
-
-print(ans)
+hands = (l.split() for l in open("../Resources/p054_poker.txt"))
+print(sum(rank(hand[:5]) > rank(hand[5:]) for hand in hands))
