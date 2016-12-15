@@ -10,6 +10,11 @@ def eratosthenes(lim):
 
 
 # faster than converting numbers to string and joining them
+def concat(a, b):
+    order = 10
+    while b >= order:
+        order *= 10
+    return a * order + b
 
 
 def is_prime(n):
@@ -49,6 +54,7 @@ for i in range(0, 10):
                         if all_prime(P[l], P[i], P[j], P[k]):
                             for m in range(l + 1, lim):
                                 if all_prime(P[m], P[i], P[j], P[k], P[l]):
+                                    s = sum((P[m], P[i], P[j], P[k], P[l]))
                                     min_sum = min(min_sum, s)
 
 print(min_sum)
